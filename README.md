@@ -30,7 +30,7 @@ How to run it:
 
 Features:
 
-- Upload support for CSV files
+- Upload support for files
 - Basic role-based interface for Researchers and Data Submitters
 - Clean and simple multi-page layout
 - Example datasets are included in the uploads folder
