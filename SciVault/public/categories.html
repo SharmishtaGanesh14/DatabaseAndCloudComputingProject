@@ -1,0 +1,169 @@
+<!-- categories.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | SciVault</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar (same as index.html) -->
+    <!-- In your navbar section (update this in all HTML files) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-database"></i>
+                <span>SciVault</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" ><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="categories.html" class="active"><i class="fas fa-tags"></i> Categories</a></li>
+                <li><a href="upload.html"><i class="fas fa-cloud-upload-alt"></i> Upload</a></li>
+                <li><a href="index.html#about"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+            
+            <div class="auth-button" style="margin-left: auto; padding-left: 20px;">
+                <a href="auth.html" class="btn-login"><i class="fas fa-user"></i> Login/Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="categories-main">
+        <div class="section-container">
+            <h1><i class="fas fa-tags"></i> Data Categories</h1>
+            <p class="section-subtitle">Browse research data by biological category</p>
+            
+            <div class="categories-grid">
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Genomic Data</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(1)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>Proteomic Data</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(2)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Transcriptomic Data</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(3)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Metabolomic Data</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(4)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Microscopy Images</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(5)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>MRI/Neuroimaging</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(6)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Flow Cytometry</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(7)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Pathway/Network Data</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(8)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <h3>Clinical/Phenotypic Data</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(9)">Download Files</button>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Phylogenetic Data</h3>
+                    <div class="category-stats">
+                        <button class="btn-small" onclick="downloadFile(10)">Download Files</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+    <script src="main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const user = JSON.parse(localStorage.getItem('sciVaultUser'));
+        const downloadButtons = document.querySelectorAll('.btn-small');
+    });
+    function downloadFile(categoryID) {
+        const user = JSON.parse(localStorage.getItem('sciVaultUser'));
+        if (!user || user.usertype !== 'Researcher') {
+            alert('Only logged-in researchers can access files.');
+            return;
+        }
+        window.location.href = `http://localhost:3000/download-by-category/${categoryID}?email=${encodeURIComponent(user.email)}`;
+    }
+
+
+</script>
+
+</body>
+</html>
