@@ -1,4 +1,4 @@
-# DatabaseAndCloudComputingProject
+# Database And Cloud Computing Project
 
 SciVault
 
